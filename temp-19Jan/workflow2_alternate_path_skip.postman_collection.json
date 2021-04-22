@@ -1,0 +1,149 @@
+{
+	"info": {
+		"_postman_id": "81e23e36-65a7-41b7-8de9-18c846b58171",
+		"name": "workflow2_alternate_path_skip",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Request 1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"postman.setNextRequest(\"Request 3\");",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "example.com",
+					"host": [
+						"example",
+						"com"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Request 2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"if (pm.globals.get(\"runnedOnce\")) {",
+							"    postman.setNextRequest(null);",
+							"}",
+							"",
+							"pm.globals.set(\"runnedOnce\", 1);",
+							"",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "example.com",
+					"host": [
+						"example",
+						"com"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Request 3",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"postman.setNextRequest(\"Request 4\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "example.com",
+					"host": [
+						"example",
+						"com"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Request 4",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "example.com",
+					"host": [
+						"example",
+						"com"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
