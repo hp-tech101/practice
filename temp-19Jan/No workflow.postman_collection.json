@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "7fd423d7-e390-4194-b359-5e1f61bebc96",
-		"name": "No workflow",
+		"name": "No workflow with accessId",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
